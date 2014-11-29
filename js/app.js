@@ -42,6 +42,8 @@ allEnemies = [enemyOne,enemyTwo];
 
 var Player = function() {
     this.sprite = 'images/char-boy.png';
+    this.x = 200;
+    this.y = 390;
 }
 
 Player.prototype.update = function(dt) {
