@@ -1,4 +1,7 @@
 var enemyRow = [60, 140, 225];
+var playerRow = [];
+
+
 
 // Enemies our player must avoid
 var Enemy = function() {
@@ -54,12 +57,23 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.prototype.handleInput = function() {
-
+Player.prototype.handleInput = function(direction) {
+    if (direction === 'left') {
+        this.x -= 10;
+    }
+    else if (direction === 'right') {
+        this.x += 10;
+    }
+    else if (direction === 'up') {
+        this.y -= 10;
+    }
+    else if (direction === 'down') {
+        this.y += 10;
+    }
 }
 
 var player = new Player;
-player.update(3);
+
 
 
 
@@ -81,3 +95,5 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+

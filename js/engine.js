@@ -29,6 +29,21 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    canvas.addEventListener("mousedown", getPosition, false);
+
+    function getPosition(event)
+    {
+      var x = event.clientX;
+      var y = event.clientY;
+
+      //var canvas = document.getElementById("canvas");
+
+      x -= canvas.offsetLeft;
+      y -= canvas.offsetTop;
+
+      console.log("x:" + x + " y:" + y);
+    } 
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
