@@ -14,7 +14,7 @@ var Enemy = function() {
     this.x = -100;
     this.randomize = Math.floor(Math.random()*3);
     this.y = enemyRow[this.randomize];
-    this.speed = Math.floor(Math.random()*5);
+    this.speed = Math.floor(Math.random()*5+1);
 
 }
 
@@ -26,7 +26,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += 50 * this.speed * dt;
     if (this.x > 503) {
-        this.x = -100;
+        //kills enemy once off screen.
+        allEnemies.shift();
+        //makes new enemy once old one is off screen.
+        enemyRevive();
     }
 }
 
@@ -35,10 +38,16 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+var firstEnemy = new Enemy;
 
-var enemyTwo = new Enemy;
-var enemyOne = new Enemy;
-allEnemies = [enemyOne,enemyTwo];
+var enemyRevive = function() {
+    var reborn = new Enemy;
+    allEnemies.push(reborn);
+    console.log(allEnemies[0]);
+}
+allEnemies = [firstEnemy];
+console.log(allEnemies[0]);
+
 
 // Now write your own player class
 // This class requires an update(), render() and
