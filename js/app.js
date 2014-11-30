@@ -2,7 +2,6 @@ var enemyRow = [60, 140, 225];
 var playerRow = [];
 
 
-
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -12,10 +11,8 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
-    this.randomize = Math.floor(Math.random()*3);
-    this.y = enemyRow[this.randomize];
+    this.y = enemyRow[Math.floor(Math.random()*3)];
     this.speed = Math.floor(Math.random()*5) + 1;
-
 }
 
 // Update the enemy's position, required method for game
@@ -38,18 +35,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-var firstEnemy = new Enemy;
-
-// Creates new enemy and pushes it to allEnemies array.
-var spawnEnemy = function() {
-    var enemyCreate = new Enemy;
-    allEnemies.push(enemyCreate);
-}
-
-allEnemies = [firstEnemy];
-
-
-
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -62,7 +47,8 @@ var Player = function() {
 }
 
 Player.prototype.update = function(dt) {
-
+    this.x * dt;
+    this.y * dt;
 }
 
 Player.prototype.render = function() {
@@ -77,23 +63,41 @@ Player.prototype.handleInput = function(direction) {
         this.x += 100;
     }
     else if (direction === 'up' && this.y > 100) {
-        this.y -= 85;
+        this.y -= 83;
     }
     else if (direction === 'down' && this.y < 350) {
-        this.y += 85;
+        this.y += 83;
     }
 }
-
-var player = new Player;
-
-
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+var firstEnemy = new Enemy;
 
+// Creates new enemy and pushes it to allEnemies array.
+var spawnEnemy = function() {
+    var enemyCreate = new Enemy;
+    allEnemies.push(enemyCreate);
+}
+
+allEnemies = [firstEnemy];
+
+var player = new Player;
+
+var spawnPlayer = function() {
+    player = new Player;
+}
+
+var checkCollisions = function(enemies,player) {
+    for (i in enemies) {
+        if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && (enemies[i].y - player.y) < 80) {
+            spawnPlayer();
+        }
+    }
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
