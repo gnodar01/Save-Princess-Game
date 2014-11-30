@@ -65,6 +65,9 @@ Player.prototype.handleInput = function(direction) {
     else if (direction === 'up' && this.y > 100) {
         this.y -= 83;
     }
+    else if (direction === 'up' && this.y < 80) {
+        spawnPlayer();
+    }
     else if (direction === 'down' && this.y < 350) {
         this.y += 83;
     }
