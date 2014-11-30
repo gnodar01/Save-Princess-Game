@@ -14,7 +14,7 @@ var Enemy = function() {
     this.x = -100;
     this.randomize = Math.floor(Math.random()*3);
     this.y = enemyRow[this.randomize];
-    this.speed = Math.floor(Math.random()*5+1);
+    this.speed = Math.floor(Math.random()*5) + 1;
 
 }
 
@@ -45,8 +45,10 @@ var enemyRevive = function() {
     allEnemies.push(reborn);
     console.log(allEnemies[0]);
 }
+
 allEnemies = [firstEnemy];
-console.log(allEnemies[0]);
+
+
 
 
 // Now write your own player class
