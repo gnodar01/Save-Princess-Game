@@ -29,14 +29,13 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    //Tracks x and y coordinates on canvas.
     canvas.addEventListener("mousedown", getPosition, false);
 
     function getPosition(event)
     {
       var x = event.clientX;
       var y = event.clientY;
-
-      //var canvas = document.getElementById("canvas");
 
       x -= canvas.offsetLeft;
       y -= canvas.offsetTop;

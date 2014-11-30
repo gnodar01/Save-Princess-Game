@@ -59,16 +59,16 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(direction) {
     if (direction === 'left') {
-        this.x -= 10;
+        this.x -= 100;
     }
     else if (direction === 'right') {
-        this.x += 10;
+        this.x += 100;
     }
     else if (direction === 'up') {
-        this.y -= 10;
+        this.y -= 85;
     }
     else if (direction === 'down') {
-        this.y += 10;
+        this.y += 85;
     }
 }
 
@@ -96,4 +96,9 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
