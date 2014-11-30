@@ -26,10 +26,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += 50 * this.speed * dt;
     if (this.x > 503) {
-        //kills enemy once off screen.
+        // Kills enemy once off screen.
         allEnemies.shift();
-        //makes new enemy once old one is off screen.
-        enemyRevive();
+        // Makes new enemy once old one is off screen.
+        spawnEnemy();
     }
 }
 
@@ -40,10 +40,10 @@ Enemy.prototype.render = function() {
 
 var firstEnemy = new Enemy;
 
-var enemyRevive = function() {
-    var reborn = new Enemy;
-    allEnemies.push(reborn);
-    console.log(allEnemies[0]);
+// Creates new enemy and pushes it to allEnemies array.
+var spawnEnemy = function() {
+    var enemyCreate = new Enemy;
+    allEnemies.push(enemyCreate);
 }
 
 allEnemies = [firstEnemy];
@@ -97,7 +97,7 @@ var player = new Player;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keydown', function(e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
