@@ -1,5 +1,4 @@
 var enemyRow = [60, 140, 225];
-var playerRow = [];
 
 
 // Enemies our player must avoid
