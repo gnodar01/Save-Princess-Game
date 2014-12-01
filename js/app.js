@@ -73,15 +73,41 @@ Player.prototype.handleInput = function(direction) {
     }
 }
 
+var Gem = function() {
+    this.sprite = 'images/Gem_Green.png';
+    this.x = -100;
+    this.y = enemyRow[Math.floor(Math.random()*3)];
+    this.speed = Math.floor(Math.random()*5) + 1;
+}
+
+Gem.prototype.update = function(dt) {
+   this.x += 50 * this.speed * dt;
+    if (this.x > 503) {
+        // Gem disappears
+        destroyGem(this);
+        // Makes new gem once old one is off screen.
+        spawnGem();
+    }
+}
+Gem.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+var allEnemies = [];
+var allGems = [];
+
+
 var firstEnemy = new Enemy;
+var player = new Player;
+var firstGem = new Gem;
+
 
 var killEnemy = function(enemyToKill) {
-    var location = allEnemies.indexOf(enemyToKill)rem
+    var location = allEnemies.indexOf(enemyToKill)
     allEnemies.splice(location,1);
 }
 
@@ -91,18 +117,40 @@ var spawnEnemy = function() {
     allEnemies.push(enemyCreate);
 }
 
-allEnemies = [firstEnemy];
+var allEnemies = [firstEnemy];
 
-var player = new Player;
+
 
 var spawnPlayer = function() {
     player = new Player;
 }
 
-var checkCollisions = function(enemies,player) {
+
+
+var destroyGem = function(gemToDestroy) {
+    var location = allGems.indexOf(gemToDestroy)
+    allGems.splice(location,1);
+}
+
+var spawnGem = function() {
+    var gemCreate = new Gem;
+    allGems.push(gemCreate);
+}
+
+var allGems = [firstGem];
+
+
+
+var checkCollisions = function(enemies,player,gems) {
     for (i in enemies) {
         if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && (enemies[i].y - player.y) < 80) {
             spawnPlayer();
+        }
+    }
+    for (j in gems) {
+        if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && (gems[j].y - player.y) < 80) {
+            destroyGem();
+            spawnGem();
         }
     }
 }
