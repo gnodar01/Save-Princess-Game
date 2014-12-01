@@ -118,8 +118,8 @@ var allGems = [];
 
 var firstEnemy = new Enemy;
 var player = new Player;
-var star = new Star;
 var firstGem = new Gem;
+var star = new Star;
 
 
 var killEnemy = function(enemyToKill) {
@@ -159,7 +159,7 @@ var score = 0;
 
 
 
-var checkCollisions = function(enemies,player,gems) {
+var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
         if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && (enemies[i].y - player.y) < 80) {
             spawnPlayer();
