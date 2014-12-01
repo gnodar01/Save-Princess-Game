@@ -109,6 +109,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        star.update();
         allGems.forEach(function(gem) {
             gem.update(dt);
         });
@@ -170,6 +171,7 @@ var Engine = (function(global) {
             enemy.render();
         });
         player.render();
+        star.render();
         allGems.forEach(function(gem) {
             gem.render();
         });

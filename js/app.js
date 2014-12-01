@@ -92,6 +92,22 @@ Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+var Star = function() {
+    this.sprite = 'images/Star.png';
+    this.x = 200;
+    this.y = 300;
+}
+
+Star.prototype.update = function(dt) {
+    this.x * dt;
+    this.y * dt;
+}
+
+Star.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -102,6 +118,7 @@ var allGems = [];
 
 var firstEnemy = new Enemy;
 var player = new Player;
+var star = new Star;
 var firstGem = new Gem;
 
 
