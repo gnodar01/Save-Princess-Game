@@ -138,6 +138,8 @@ var spawnGem = function() {
 
 var allGems = [firstGem];
 
+var score = 0;
+
 
 
 var checkCollisions = function(enemies,player,gems) {
@@ -150,6 +152,11 @@ var checkCollisions = function(enemies,player,gems) {
         if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && (gems[j].y - player.y) < 80) {
             destroyGem();
             spawnGem();
+            score++;
+            console.log("score: " + score);
+            if (score % 10 === 0) {
+                spawnEnemy();
+            }
         }
     }
 }
