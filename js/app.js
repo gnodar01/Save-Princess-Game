@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += 50 * this.speed * dt;
-    if (this.x > 503) {
+    if (this.x > 808) {
         // Kills enemy once off screen.
         killEnemy(this);
         // Makes new enemy once old one is off screen.
@@ -81,7 +81,7 @@ var Gem = function() {
 
 Gem.prototype.update = function(dt) {
    this.x += 50 * this.speed * dt;
-    if (this.x > 503) {
+    if (this.x > 808) {
         // Gem disappears
         destroyGem(this);
         // Makes new gem once old one is off screen.
