@@ -56,10 +56,10 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(direction) {
     if (direction === 'left' && this.x > 0) {
-        this.x -= 100;
+        this.x -= 101;
     }
-    else if (direction === 'right' && this.x < 400) {
-        this.x += 100;
+    else if (direction === 'right' && this.x < 700) {
+        this.x += 101;
     }
     else if (direction === 'up' && this.y > 100) {
         this.y -= 83;
@@ -67,7 +67,7 @@ Player.prototype.handleInput = function(direction) {
     else if (direction === 'up' && this.y < 80) {
         spawnPlayer();
     }
-    else if (direction === 'down' && this.y < 350) {
+    else if (direction === 'down' && this.y < 400) {
         this.y += 83;
     }
 }
