@@ -81,8 +81,7 @@ Player.prototype.handleInput = function(direction) {
 var firstEnemy = new Enemy;
 
 var killEnemy = function(enemyToKill) {
-    var location = allEnemies.indexOf(enemyToKill)
-    console.log(location);
+    var location = allEnemies.indexOf(enemyToKill)rem
     allEnemies.splice(location,1);
 }
 
