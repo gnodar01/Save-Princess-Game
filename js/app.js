@@ -1,4 +1,4 @@
-var enemyRow = [60, 140, 225];
+var spriteRow = [60, 143, 226, 309];
 
 
 // Enemies our player must avoid
@@ -10,7 +10,7 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
-    this.y = enemyRow[Math.floor(Math.random()*3)];
+    this.y = spriteRow[Math.floor(Math.random()*4)];
     this.speed = Math.floor(Math.random()*5) + 1;
 }
 
@@ -75,7 +75,7 @@ Player.prototype.handleInput = function(direction) {
 var Gem = function() {
     this.sprite = 'images/Gem_Green.png';
     this.x = -100;
-    this.y = enemyRow[Math.floor(Math.random()*3)];
+    this.y = spriteRow[Math.floor(Math.random()*4)];
     this.speed = Math.floor(Math.random()*5) + 1;
 }
 
