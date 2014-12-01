@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
     this.x += 50 * this.speed * dt;
     if (this.x > 503) {
         // Kills enemy once off screen.
-        allEnemies.shift();
+        killEnemy(this);
         // Makes new enemy once old one is off screen.
         spawnEnemy();
     }
@@ -79,6 +79,14 @@ Player.prototype.handleInput = function(direction) {
 // Place the player object in a variable called player
 
 var firstEnemy = new Enemy;
+var secondEnemy = new Enemy;
+var thirdEnemy = new Enemy;
+
+var killEnemy = function(enemyToKill) {
+    var location = allEnemies.indexOf(enemyToKill)
+    console.log(location);
+    allEnemies.splice(location,1);
+}
 
 // Creates new enemy and pushes it to allEnemies array.
 var spawnEnemy = function() {
