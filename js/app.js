@@ -79,8 +79,6 @@ Player.prototype.handleInput = function(direction) {
 // Place the player object in a variable called player
 
 var firstEnemy = new Enemy;
-var secondEnemy = new Enemy;
-var thirdEnemy = new Enemy;
 
 var killEnemy = function(enemyToKill) {
     var location = allEnemies.indexOf(enemyToKill)
