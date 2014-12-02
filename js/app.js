@@ -172,6 +172,7 @@ var starDisappear = function() {
 
 
 var gemsCollected = 0;
+var score = 0;
 var level = 1;
 
 
@@ -184,10 +185,21 @@ var checkCollisions = function(enemies,player,gems,star) {
     }
     for (j in gems) {
         if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && ((gems[j].y - player.y) < 80)) {
+            switch(gems[0].sprite) {
+                case "images/Gem_Green.png":
+                    score++;
+                    break;
+                case "images/Gem_Blue.png":
+                    score+=2;
+                    break;
+                case "images/Gem_Orange.png":
+                    score +=3
+                    break;
+            }
+            gemsCollected++;
+            console.log("gems collected: " + gemsCollected + "; score: " + score);
             destroyGem();
             spawnGem();
-            gemsCollected++;
-            console.log("score: " + gemsCollected);
             if (gemsCollected % 10 === 0) {
                 starAppear();
                 destroyGem();
