@@ -94,7 +94,7 @@ Gem.prototype.render = function() {
 
 var Star = function() {
     this.sprite = 'images/Star.png';
-    this.x = 200;
+    this.x = -100;
     this.y = 300;
 }
 
@@ -165,6 +165,7 @@ var starDisappear = function() {
 
 
 var score = 0;
+var level = 1;
 
 
 
@@ -188,6 +189,8 @@ var checkCollisions = function(enemies,player,gems,star) {
     }
     if (((star.x - player.x) < 80) && ((player.x - star.x) <80) && ((player.y - star.y) < 80) && ((star.y - player.y) < 80)) {
         starDisappear();
+        level++;
+        console.log("level " + level);
     }
 }
 
