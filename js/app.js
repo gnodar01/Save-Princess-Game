@@ -1,5 +1,8 @@
 var spriteRow = [60, 143, 226, 309];
 var spriteColumn = [0,101,202,303,404,505,606,707];
+var gemColors = ['images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png',
+ 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Blue.png',
+  'images/Gem_Blue.png', 'images/Gem_Blue.png', 'images/Gem_Orange.png'];
 
 
 // Enemies our player must avoid
@@ -72,9 +75,10 @@ Player.prototype.handleInput = function(direction) {
         this.y += 83;
     }
 }
+    
 
 var Gem = function() {
-    this.sprite = 'images/Gem_Green.png';
+    this.sprite = gemColors[Math.floor(Math.random()*10)];
     this.x = -100;
     this.y = spriteRow[Math.floor(Math.random()*4)];
     this.speed = Math.floor(Math.random()*5) + 1;
