@@ -94,7 +94,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        checkCollisions(allEnemies,player,allGems,star);
+        checkCollisions(allEnemies,player,gem,star);
     }
 
     /* This is called by the update function  and loops through all of the
@@ -109,7 +109,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        allGems.forEach(function(gem) {
+        gem.forEach(function(gem) {
             gem.update(dt);
         });
         star.update();
@@ -171,7 +171,7 @@ var Engine = (function(global) {
             enemy.render();
         });
         player.render();
-        allGems.forEach(function(gem) {
+        gem.forEach(function(gem) {
             gem.render();
         });
         star.render();

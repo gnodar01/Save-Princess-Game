@@ -89,6 +89,7 @@ Gem.prototype.update = function(dt) {
         spawnGem();
     }
 }
+
 Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
@@ -120,7 +121,7 @@ var allEnemies = [firstEnemy];
 var player = new Player;
 
 var firstGem = new Gem;
-var allGems = [firstGem];
+var gem = [firstGem];
 
 var star = new Star;
 
@@ -145,13 +146,13 @@ var spawnPlayer = function() {
 
 
 var destroyGem = function(gemToDestroy) {
-    var location = allGems.indexOf(gemToDestroy)
-    allGems.splice(location,1);
+    var location = gem.indexOf(gemToDestroy)
+    gem.splice(location,1);
 }
 
 var spawnGem = function() {
     var gemCreate = new Gem;
-    allGems.push(gemCreate);
+    gem.push(gemCreate);
 }
 
 
@@ -166,7 +167,7 @@ var starDisappear = function() {
 }
 
 
-var score = 0;
+var gemsCollected = 0;
 var level = 1;
 
 
@@ -181,9 +182,9 @@ var checkCollisions = function(enemies,player,gems,star) {
         if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && ((gems[j].y - player.y) < 80)) {
             destroyGem();
             spawnGem();
-            score++;
-            console.log("score: " + score);
-            if (score % 10 === 0) {
+            gemsCollected++;
+            console.log("score: " + gemsCollected);
+            if (gemsCollected % 10 === 0) {
                 starAppear();
                 destroyGem();
             }
