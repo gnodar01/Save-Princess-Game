@@ -70,6 +70,8 @@ Player.prototype.handleInput = function(direction) {
     }
     else if (direction === 'up' && this.y < 80) {
         spawnPlayer();
+        lives--;
+        console.log("lives left: " + lives);
     }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
