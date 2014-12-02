@@ -184,13 +184,16 @@ var checkCollisions = function(enemies,player,gems,star) {
             score++;
             console.log("score: " + score);
             if (score % 10 === 0) {
-                spawnEnemy();
                 starAppear();
+                destroyGem();
             }
         }
     }
     if (((star.x - player.x) < 80) && ((player.x - star.x) <80) && ((player.y - star.y) < 80) && ((star.y - player.y) < 80)) {
         starDisappear();
+        spawnPlayer();
+        spawnEnemy();
+        spawnGem();
         level++;
         console.log("level " + level);
     }
