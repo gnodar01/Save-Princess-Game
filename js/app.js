@@ -112,13 +112,15 @@ Star.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = [];
-var allGems = [];
-
 
 var firstEnemy = new Enemy;
+var allEnemies = [firstEnemy];
+
 var player = new Player;
+
 var firstGem = new Gem;
+var allGems = [firstGem];
+
 var star = new Star;
 
 
@@ -132,8 +134,6 @@ var spawnEnemy = function() {
     var enemyCreate = new Enemy;
     allEnemies.push(enemyCreate);
 }
-
-var allEnemies = [firstEnemy];
 
 
 
@@ -153,7 +153,16 @@ var spawnGem = function() {
     allGems.push(gemCreate);
 }
 
-var allGems = [firstGem];
+
+
+var starAppear = function() {
+    star.x = 300;
+}
+
+var starDisappear = function() {
+    star.x = -100;
+}
+
 
 var score = 0;
 
@@ -161,20 +170,24 @@ var score = 0;
 
 var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
-        if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && (enemies[i].y - player.y) < 80) {
+        if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && ((enemies[i].y - player.y) < 80)) {
             spawnPlayer();
         }
     }
     for (j in gems) {
-        if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && (gems[j].y - player.y) < 80) {
+        if (((gems[j].x - player.x) < 80) && ((player.x - gems[j].x) < 80) && ((player.y - gems[j].y) < 80) && ((gems[j].y - player.y) < 80)) {
             destroyGem();
             spawnGem();
             score++;
             console.log("score: " + score);
             if (score % 10 === 0) {
                 spawnEnemy();
+                starAppear();
             }
         }
+    }
+    if (((star.x - player.x) < 80) && ((player.x - star.x) <80) && ((player.y - star.y) < 80) && ((star.y - player.y) < 80)) {
+        starDisappear();
     }
 }
 
