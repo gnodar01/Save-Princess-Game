@@ -1,4 +1,5 @@
 var spriteRow = [60, 143, 226, 309];
+var spriteColumn = [0,101,202,303,404,505,606,707];
 
 
 // Enemies our player must avoid
@@ -41,7 +42,7 @@ Enemy.prototype.render = function() {
 
 var Player = function() {
     this.sprite = 'images/char-boy.png';
-    this.x = 200;
+    this.x = spriteColumn[Math.floor(Math.random()*8)];
     this.y = 390;
 }
 
@@ -95,7 +96,7 @@ Gem.prototype.render = function() {
 var Star = function() {
     this.sprite = 'images/Star.png';
     this.x = -100;
-    this.y = 300;
+    this.y = spriteRow[Math.floor(Math.random()*4)];
 }
 
 Star.prototype.update = function(dt) {
@@ -156,7 +157,8 @@ var spawnGem = function() {
 
 
 var starAppear = function() {
-    star.x = 300;
+    star.x = spriteColumn[Math.floor(Math.random() * 8)];
+
 }
 
 var starDisappear = function() {
