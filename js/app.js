@@ -174,6 +174,7 @@ var starDisappear = function() {
 var gemsCollected = 0;
 var score = 0;
 var level = 1;
+var lives = 3;
 
 
 
@@ -181,6 +182,8 @@ var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
         if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && ((enemies[i].y - player.y) < 80)) {
             spawnPlayer();
+            lives--;
+            console.log("lives left: " + lives);
         }
     }
     for (j in gems) {
@@ -211,7 +214,7 @@ var checkCollisions = function(enemies,player,gems,star) {
         spawnEnemy();
         spawnGem();
         score+=5;
-        console.log("level " + level);
+        console.log("gems collected: " + gemsCollected + "; score: " + score);
     }
 }
 
