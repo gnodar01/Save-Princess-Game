@@ -136,7 +136,7 @@ Star.prototype.render = function() {
 
 
 var Key = function(dt) {
-    this.sprite = 'Key.png';
+    this.sprite = 'images/Key.png';
     this.x = -100;
     this.y = 0;
 }
@@ -189,6 +189,9 @@ var gem = [firstGem];
 
 var star = new Star;
 
+var key = new Key;
+var princess = new Princess;
+
 
 var killEnemy = function(enemyToKill) {
     var location = allEnemies.indexOf(enemyToKill)
@@ -232,8 +235,16 @@ var starDisappear = function() {
 
 
 
-var rockMove = function() {
-    allRocks[Math.floor(Math.random()*2)].x += 101;
+var moveRockOne = function() {
+    var keyRock = allRocks[0];
+    keyRock += 101;
+    key.x = keyRock - 101;
+}
+
+var moveRockTwo = function() {
+    var princessRock = allRocks[0];
+    princessRock += 101;
+    princess.x = princessRock - 101;
 }
 
 
@@ -279,7 +290,7 @@ var checkCollisions = function(enemies,player,gems,star) {
         starDisappear();
         spawnEnemy();
         spawnGem();
-        rockMove();
+        moveRockOne();
         score+=5;
         console.log("gems collected: " + gemsCollected + "; score: " + score);
     }
