@@ -3,6 +3,9 @@ var spriteColumn = [0,101,202,303,404,505,606,707];
 var gemColors = ['images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png',
  'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png',
   'images/Gem_Blue.png', 'images/Gem_Blue.png', 'images/Gem_Orange.png'];
+var gemsCollected = 0;
+var score = 0;
+var lives = 3;
 
 
 // Enemies our player must avoid
@@ -93,10 +96,14 @@ Player.prototype.handleInput = function(direction) {
     }
     else if (direction === 'up' && this.x === spriteColumn[1] && key.x === 101) {
         getKey();
+        score += 10;
         moveRockTwo();
     }
     else if (direction === 'up' && this.x === spriteColumn[6] && princess.x === 606) {
         savePrincess();
+        score += 20;
+        allEnemies = [];
+        console.log("You Win");
     }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
@@ -264,12 +271,6 @@ var savePrincess = function() {
 }
 
 
-var gemsCollected = 0;
-var score = 0;
-var level = 1;
-var lives = 3;
-
-
 
 var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
@@ -296,7 +297,8 @@ var checkCollisions = function(enemies,player,gems,star) {
             console.log("gems collected: " + gemsCollected + "; score: " + score);
             destroyGem();
             spawnGem();
-            if (gemsCollected % 10 === 0) {
+            spawnEnemy();
+            if (gemsCollected % 8 === 0) {
                 starAppear();
                 destroyGem();
             }
