@@ -242,7 +242,7 @@ var moveRockOne = function() {
 }
 
 var moveRockTwo = function() {
-    var princessRock = allRocks[0];
+    var princessRock = allRocks[1];
     princessRock += 101;
     princess.x = princessRock - 101;
 }
