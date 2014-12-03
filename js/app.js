@@ -115,6 +115,26 @@ Star.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+var Rock = function() {
+    this.sprite = 'images/Rock.png';
+    this.x;
+    this.y = 0
+}
+
+Rock.prototype.update = function(dt) {
+    this.x * dt;
+    this.y * dt;
+}
+
+Rock.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+var rockOne = new Rock;
+rockOne.x = 101;
+var rockTwo = new Rock;
+rockTwo.x = 607;
+var allRocks = [rockOne,rockTwo];
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
