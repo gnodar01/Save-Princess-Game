@@ -68,7 +68,7 @@ Player.prototype.handleInput = function(direction) {
     else if (direction === 'up' && this.y > 100) {
         this.y -= 83;
     }
-    else if (direction === 'up' && this.y < 80) {
+    else if (direction === 'up' && this.y < 80 && this.x !== spriteColumn[1] && this.x !== spriteColumn[6]) {
         spawnPlayer();
         lives--;
         console.log("lives left: " + lives);
