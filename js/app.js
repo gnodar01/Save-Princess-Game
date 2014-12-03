@@ -193,6 +193,12 @@ var starDisappear = function() {
 }
 
 
+
+var rockMove = function() {
+    allRocks[Math.floor(Math.random()*2)].x += 101;
+}
+
+
 var gemsCollected = 0;
 var score = 0;
 var level = 1;
@@ -235,6 +241,7 @@ var checkCollisions = function(enemies,player,gems,star) {
         starDisappear();
         spawnEnemy();
         spawnGem();
+        rockMove();
         score+=5;
         console.log("gems collected: " + gemsCollected + "; score: " + score);
     }
