@@ -211,12 +211,14 @@ var Engine = (function(global) {
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
+        'images/Rock.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
         'images/Gem_Green.png',
         'images/Gem_Blue.png',
         'images/Gem_Orange.png',
-        'images/Star.png'
+        'images/Star.png',
+        'images/Key.png'
     ]);
     Resources.onReady(init);
 
