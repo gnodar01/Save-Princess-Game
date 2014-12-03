@@ -306,11 +306,12 @@ var checkCollisions = function(enemies,player,gems,star) {
         starDisappear();
         spawnEnemy();
         spawnGem();
-        moveRockOne();
         score+=5;
         console.log("gems collected: " + gemsCollected + "; score: " + score);
     }
 }
+
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
