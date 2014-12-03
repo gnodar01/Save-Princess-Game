@@ -95,6 +95,9 @@ Player.prototype.handleInput = function(direction) {
         getKey();
         moveRockTwo();
     }
+    else if (direction === 'up' && this.x === spriteColumn[6] && princess.x === 606) {
+        savePrincess();
+    }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
     }
