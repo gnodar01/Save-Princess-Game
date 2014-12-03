@@ -1,7 +1,7 @@
 var spriteRow = [60, 143, 226, 309];
 var spriteColumn = [0,101,202,303,404,505,606,707];
 var gemColors = ['images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png',
- 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Blue.png',
+ 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png', 'images/Gem_Green.png',
   'images/Gem_Blue.png', 'images/Gem_Blue.png', 'images/Gem_Orange.png'];
 
 

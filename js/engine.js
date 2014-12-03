@@ -134,6 +134,17 @@ var Engine = (function(global) {
                 'images/grass-block.png',   // Row 1 of 2 of grass
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
+
+            rowOneImages = [
+                'images/water-block.png',
+                'images/stone-block.png',
+                'images/water-block.png',
+                'images/water-block.png',
+                'images/water-block.png',
+                'images/water-block.png',
+                'images/stone-block.png',
+                'images/water-block.png'
+            ],
             numRows = 7,
             numCols = 8,
             row, col;
@@ -142,7 +153,14 @@ var Engine = (function(global) {
          * and, using the rowImages array, draw the correct image for that
          * portion of the "grid"
          */
-        for (row = 0; row < numRows; row++) {
+         for (row = 0; row < 1; row++) {
+            for(col = 0; col < numCols; col++) {
+               ctx.drawImage(Resources.get(rowOneImages[col]), col * 101, row * 8); 
+            }
+         }
+
+
+        for (row = 1; row < numRows; row++) {
             for (col = 0; col < numCols; col++) {
                 /* The drawImage function of the canvas' context element
                  * requires 3 parameters: the image to draw, the x coordinate
