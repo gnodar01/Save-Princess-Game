@@ -91,6 +91,9 @@ Player.prototype.handleInput = function(direction) {
         lives--;
         console.log("lives left: " + lives);
     }
+    else if (direction === 'up' && this.x === spriteColumn[1] && key.x === 101) {
+        getKey();
+    }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
     }
