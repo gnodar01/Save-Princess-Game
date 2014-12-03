@@ -116,6 +116,8 @@ var Engine = (function(global) {
             gem.update(dt);
         });
         star.update();
+        key.update();
+        princess.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -199,6 +201,8 @@ var Engine = (function(global) {
             gem.render();
         });
         star.render();
+        key.render();
+        princess.render();
     }
 
     /* This function does nothing but it could have been a good place to
