@@ -179,7 +179,7 @@ var allEnemies = [firstEnemy];
 var rockOne = new Rock;
 rockOne.x = 101;
 var rockTwo = new Rock;
-rockTwo.x = 607;
+rockTwo.x = 606;
 var allRocks = [rockOne,rockTwo];
 
 var player = new Player;
@@ -238,13 +238,13 @@ var starDisappear = function() {
 var moveRockOne = function() {
     var keyRock = allRocks[0];
     keyRock.x += 101;
-    key.x = keyRock.x - 101;
+    key.x = 101
 }
 
 var moveRockTwo = function() {
     var princessRock = allRocks[1];
     princessRock.x += 101;
-    princess.x = princessRock.x - 101;
+    princess.x = 606;
 }
 
 
