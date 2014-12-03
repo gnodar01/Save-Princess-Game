@@ -247,6 +247,15 @@ var moveRockTwo = function() {
     princess.x = 606;
 }
 
+var getKey = function() {
+    key.x = -100;
+}
+
+var savePrincess = function() {
+    princess.x = player.x - 100;
+    princess.y = player.y;
+}
+
 
 var gemsCollected = 0;
 var score = 0;
