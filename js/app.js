@@ -93,6 +93,7 @@ Player.prototype.handleInput = function(direction) {
     }
     else if (direction === 'up' && this.x === spriteColumn[1] && key.x === 101) {
         getKey();
+        moveRockTwo();
     }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
