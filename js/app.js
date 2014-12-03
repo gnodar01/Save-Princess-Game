@@ -103,7 +103,7 @@ Player.prototype.handleInput = function(direction) {
         savePrincess();
         score += 20;
         allEnemies = [];
-        console.log("You Win");
+        console.log("You Win! Your score is: " + score);
     }
     else if (direction === 'down' && this.y < 400) {
         this.y += 83;
@@ -294,7 +294,6 @@ var checkCollisions = function(enemies,player,gems,star) {
                     break;
             }
             gemsCollected++;
-            console.log("gems collected: " + gemsCollected + "; score: " + score);
             destroyGem();
             spawnGem();
             spawnEnemy();
@@ -308,7 +307,6 @@ var checkCollisions = function(enemies,player,gems,star) {
         starDisappear();
         moveRockOne();
         score+=5;
-        console.log("gems collected: " + gemsCollected + "; score: " + score);
     }
 }
 
