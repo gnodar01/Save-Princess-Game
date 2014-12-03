@@ -39,6 +39,24 @@ Enemy.prototype.render = function() {
 }
 
 
+
+var Rock = function() {
+    this.sprite = 'images/Rock.png';
+    this.x;
+    this.y = 0;
+}
+
+Rock.prototype.update = function(dt) {
+    this.x * dt;
+    this.y * dt;
+}
+
+Rock.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -115,26 +133,40 @@ Star.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-var Rock = function() {
-    this.sprite = 'images/Rock.png';
-    this.x;
-    this.y = 0
+
+
+var Key = function(dt) {
+    this.sprite = 'Key.png';
+    this.x = -100;
+    this.y = 0;
 }
 
-Rock.prototype.update = function(dt) {
+Key.prototype.update = function(dt) {
     this.x * dt;
     this.y * dt;
 }
 
-Rock.prototype.render = function() {
+Key.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-var rockOne = new Rock;
-rockOne.x = 101;
-var rockTwo = new Rock;
-rockTwo.x = 607;
-var allRocks = [rockOne,rockTwo];
+
+
+var Princess = function(dt) {
+    this.sprite = 'images/char-princess-girl.png';
+    this.x = -100;
+    this.y = 0;
+}
+
+Princess.prototype.update = function(dt) {
+    this.x * dt;
+    this.y * dt;
+}
+
+Princess.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -143,6 +175,12 @@ var allRocks = [rockOne,rockTwo];
 
 var firstEnemy = new Enemy;
 var allEnemies = [firstEnemy];
+
+var rockOne = new Rock;
+rockOne.x = 101;
+var rockTwo = new Rock;
+rockTwo.x = 607;
+var allRocks = [rockOne,rockTwo];
 
 var player = new Player;
 
