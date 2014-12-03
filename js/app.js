@@ -237,14 +237,14 @@ var starDisappear = function() {
 
 var moveRockOne = function() {
     var keyRock = allRocks[0];
-    keyRock += 101;
-    key.x = keyRock - 101;
+    keyRock.x += 101;
+    key.x = keyRock.x - 101;
 }
 
 var moveRockTwo = function() {
     var princessRock = allRocks[1];
-    princessRock += 101;
-    princess.x = princessRock - 101;
+    princessRock.x += 101;
+    princess.x = princessRock.x - 101;
 }
 
 
