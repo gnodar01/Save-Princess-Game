@@ -230,6 +230,17 @@ var key = new Key;
 var princess = new Princess;
 
 
+var stopEnteties = function() {
+    allEnemies.forEach(function(enemy) {
+        enemy.speed = 0;
+    });
+    gems.forEach(function(gem) {
+        gem.speed = 0;
+    })
+}
+
+
+
 var killEnemy = function(enemyToKill) {
     var location = allEnemies.indexOf(enemyToKill)
     allEnemies.splice(location,1);
@@ -244,8 +255,13 @@ var spawnEnemy = function() {
 
 
 var loseLife = function() {
-    lives--;
-    allHearts.pop();
+    if (lives > 1) {
+        lives--;
+        allHearts.pop();
+    }
+    else {
+        reset();
+    }
 }
 
 
@@ -304,12 +320,13 @@ var savePrincess = function() {
 var reset = function() {
     spawnPlayer();
     allEnemies = [firstEnemy];
+    gem = [firstGem];
     rockOne.x = 101;
     rockTwo.x = 606;
     allHearts = [heartOne, heartTwo, heartThree];
     key.x = -100;
     princess.x = -100;
-    star = -100;
+    star.x = -100;
     lives = 3;
     score = 0;
     gemsCollected = 0; 
