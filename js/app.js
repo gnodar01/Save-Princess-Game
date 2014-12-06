@@ -63,7 +63,7 @@ Rock.prototype.render = function() {
 var Heart = function() {
     this.sprite = 'images/Heart.png';
     this.x = 0;
-    this.y = 100;
+    this.y = 0;
 }
 
 Heart.prototype.update = function(dt) {
