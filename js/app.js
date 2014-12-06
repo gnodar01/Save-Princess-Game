@@ -312,7 +312,7 @@ var reset = function() {
     star = -100;
     lives = 3;
     score = 0;
-    gemsCollected = 0;
+    gemsCollected = 0; 
 }
 
 
