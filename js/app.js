@@ -212,9 +212,9 @@ var allRocks = [rockOne,rockTwo];
 var heartOne = new Heart;
 heartOne.x = 0;
 var heartTwo = new Heart;
-heartTwo.x = 100;
+heartTwo.x = 50;
 var heartThree = new Heart;
-heartThree.x = 200;
+heartThree.x = 100;
 var allHearts = [heartOne,heartTwo,heartThree];
 
 var player = new Player;
