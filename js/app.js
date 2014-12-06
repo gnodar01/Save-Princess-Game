@@ -301,6 +301,21 @@ var savePrincess = function() {
 }
 
 
+var reset = function() {
+    spawnPlayer();
+    allEnemies = [firstEnemy];
+    rockOne.x = 101;
+    rockTwo.x = 606;
+    allHearts = [heartOne, heartTwo, heartThree];
+    key.x = -100;
+    princess.x = -100;
+    star = -100;
+    lives = 3;
+    score = 0;
+    gemsCollected = 0;
+}
+
+
 
 var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
