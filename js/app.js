@@ -70,7 +70,7 @@ Heart.prototype.update = function(dt) {
 }
 
 Heart.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, 50, 50);
 }
 
 
