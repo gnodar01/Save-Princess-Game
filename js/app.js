@@ -58,10 +58,12 @@ Rock.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+
+
 var Heart = function() {
     this.sprite = 'images/Heart.png';
     this.x = 0;
-    this.y = 0;
+    this.y = 100;
 }
 
 Heart.prototype.update = function(dt) {
@@ -105,7 +107,7 @@ Player.prototype.handleInput = function(direction) {
     }
     else if (direction === 'up' && this.y < 80 && this.x !== spriteColumn[1] && this.x !== spriteColumn[6]) {
         spawnPlayer();
-        lives--;
+        loseLife();
     }
     else if (direction === 'up' && this.x === spriteColumn[1] && key.x === 101) {
         getKey();
@@ -207,7 +209,7 @@ var rockOne = new Rock;
 rockOne.x = 101;
 var rockTwo = new Rock;
 rockTwo.x = 606;
-var allRocks = [rockOne,rockTwo];
+var allRocks = [rockOne, rockTwo];
 
 var heartOne = new Heart;
 heartOne.x = 0;
@@ -215,7 +217,7 @@ var heartTwo = new Heart;
 heartTwo.x = 50;
 var heartThree = new Heart;
 heartThree.x = 100;
-var allHearts = [heartOne,heartTwo,heartThree];
+var allHearts = [heartOne, heartTwo, heartThree];
 
 var player = new Player;
 
@@ -237,6 +239,13 @@ var killEnemy = function(enemyToKill) {
 var spawnEnemy = function() {
     var enemyCreate = new Enemy;
     allEnemies.push(enemyCreate);
+}
+
+
+
+var loseLife = function() {
+    lives--;
+    allHearts.pop();
 }
 
 
@@ -297,7 +306,7 @@ var checkCollisions = function(enemies,player,gems,star) {
     for (i in enemies) {
         if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && ((enemies[i].y - player.y) < 80)) {
             spawnPlayer();
-            lives--;
+            loseLife();
         }
     }
     for (j in gems) {
