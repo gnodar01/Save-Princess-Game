@@ -64,6 +64,15 @@ var Heart = function() {
     this.y = 0;
 }
 
+Heart.prototype.update = function(dt) {
+    this.x * dt;
+    this.y * dt;
+}
+
+Heart.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -199,6 +208,14 @@ rockOne.x = 101;
 var rockTwo = new Rock;
 rockTwo.x = 606;
 var allRocks = [rockOne,rockTwo];
+
+var heartOne = new Heart;
+heartOne.x = 0;
+var heartTwo = new Heart;
+heartTwo.x = 100;
+var heartThree = new Heart;
+heartThree.x = 200;
+var allHearts = [heartOne,heartTwo,heartThree];
 
 var player = new Player;
 

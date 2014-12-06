@@ -111,6 +111,9 @@ var Engine = (function(global) {
         allRocks.forEach(function(rock) {
             rock.update();
         });
+        allHearts.forEach(function(heart) {
+            heart.update();
+        });
         player.update();
         gem.forEach(function(gem) {
             gem.update(dt);
@@ -196,6 +199,9 @@ var Engine = (function(global) {
         });
         allRocks.forEach(function(rock) {
             rock.render();
+        });
+        allHearts.forEach(function(heart) {
+            heart.render();
         });
         player.render();
         gem.forEach(function(gem) {
