@@ -58,6 +58,11 @@ Rock.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+var Heart = function() {
+    this.sprite = 'images/Heart.png';
+    this.x = 0;
+    this.y = 0;
+}
 
 
 // Now write your own player class
@@ -92,7 +97,6 @@ Player.prototype.handleInput = function(direction) {
     else if (direction === 'up' && this.y < 80 && this.x !== spriteColumn[1] && this.x !== spriteColumn[6]) {
         spawnPlayer();
         lives--;
-        console.log("lives left: " + lives);
     }
     else if (direction === 'up' && this.x === spriteColumn[1] && key.x === 101) {
         getKey();
@@ -277,7 +281,6 @@ var checkCollisions = function(enemies,player,gems,star) {
         if (((enemies[i].x - player.x) < 80) && ((player.x - enemies[i].x) < 80) && ((player.y - enemies[i].y) < 80) && ((enemies[i].y - player.y) < 80)) {
             spawnPlayer();
             lives--;
-            console.log("lives left: " + lives);
         }
     }
     for (j in gems) {
