@@ -2,7 +2,7 @@
 
 Simple little frogger-like game using HTML Canvas.
 
-[](/arcade-game-cap.gif)
+![](/arcade-game-cap.gif)
 
 ## To play
 
