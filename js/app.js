@@ -18,21 +18,18 @@ var lives = 3;
 
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    // The image/sprite for enemies, this uses
+    // a helper to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
     this.y = spriteRow[Math.floor(Math.random()*4)];
     this.speed = Math.floor(Math.random()*5) + 1;
 }
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
+    // multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += 50 * this.speed * dt;
@@ -81,10 +78,7 @@ Heart.prototype.render = function() {
 }
 
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+// player class
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = spriteColumn[Math.floor(Math.random()*8)];
@@ -158,6 +152,7 @@ Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+
 var Star = function() {
     this.sprite = 'images/Star.png';
     this.x = -100;
@@ -173,7 +168,6 @@ Star.prototype.update = function(dt) {
 Star.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
-
 
 
 var Key = function(dt) {
@@ -193,7 +187,6 @@ Key.prototype.render = function() {
 }
 
 
-
 var Princess = function(dt) {
     this.sprite = 'images/char-princess-girl.png';
     // Keep princess off screen until player has gathered key to move the rock where she will then go
@@ -211,26 +204,29 @@ Princess.prototype.render = function() {
 }
 
 
-// Now instantiate your objects.
+// Instantiate objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
 var firstEnemy = new Enemy;
 var allEnemies = [firstEnemy];
 
 var rockOne = new Rock;
 rockOne.x = 101;
+
 var rockTwo = new Rock;
 rockTwo.x = 606;
+
 var allRocks = [rockOne, rockTwo];
 
 var heartOne = new Heart;
 heartOne.x = 0;
+
 var heartTwo = new Heart;
 heartTwo.x = 50;
+
 var heartThree = new Heart;
 heartThree.x = 100;
+
 var allHearts = [heartOne, heartTwo, heartThree];
 
 var player = new Player;
@@ -241,7 +237,9 @@ var gem = [firstGem];
 var star = new Star;
 
 var key = new Key;
+
 var princess = new Princess;
+
 
 // Stops all enemys and gems from moving (for after player wins game)
 var stopEnteties = function() {
@@ -266,8 +264,6 @@ var spawnEnemy = function() {
     allEnemies.push(enemyCreate);
 }
 
-
-
 var loseLife = function() {
     if (lives > 1) {
         lives--;
@@ -278,12 +274,9 @@ var loseLife = function() {
     }
 }
 
-
-
 var spawnPlayer = function() {
     player = new Player;
 }
-
 
 // Gems are destroyed when the go off screen, the player collects one, or when the star appears
 var destroyGem = function(gemToDestroy) {
@@ -296,19 +289,14 @@ var spawnGem = function() {
     gem.push(gemCreate);
 }
 
-
-
 var starAppear = function() {
     // Put star on random tile
     star.x = spriteColumn[Math.floor(Math.random() * 8)];
-
 }
 
 var starDisappear = function() {
     star.x = -100;
 }
-
-
 
 var moveRockOne = function() {
     var keyRock = allRocks[0];
@@ -333,7 +321,6 @@ var savePrincess = function() {
     princess.y = player.y;
 }
 
-
 var reset = function() {
     spawnPlayer();
     allEnemies = [firstEnemy];
@@ -348,7 +335,6 @@ var reset = function() {
     score = 0;
     gemsCollected = 0; 
 }
-
 
 // Checks if player is overlaping with any game elements, and assigns results accordingly
 var checkCollisions = function(enemies,player,gems,star) {
@@ -395,9 +381,8 @@ var checkCollisions = function(enemies,player,gems,star) {
 }
 
 
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses and sends the keys to 
+// Player.handleInput() method
 document.addEventListener('keydown', function(e) {
     var allowedKeys = {
         37: 'left',
