@@ -1,5 +1,10 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game
+
+Simple little frogger-like game using HTML Canvas.
+
+[](/arcase-game-cap.gif)
+
+## To play
 
 Use the arrow keys to collect gems.
 
